@@ -12,8 +12,7 @@ make -j 4 install
 
 
 #VERSION=harfbuzz-0.9.19.tar.bz2
-VERSION=harfbuzz-2.6.4
-EXTENSION=.tar.xz
+VERSION=harfbuzz-2.6.4 EXTENSION=.tar.xz
 if [ ! -f /tmp/resources/${VERSION}${EXTENSION} ]; then \
     wget http://www.freedesktop.org/software/harfbuzz/release/${VERSION}${EXTENSION} -P /tmp/resources/; \
     fi; \
@@ -74,10 +73,7 @@ if [  ! -d /tmp/resources/mapserver ]; then \
         -DWITH_PHP=ON && \
     make -j 4 install  && \
     ldconfig
-
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
 echo '<?php phpinfo();' > /var/www/html/info.php
-
 rm -rf /tmp/resources/mapserver /tmp/resources/geos-${GEOS_VERSION}.tar.bz2 \
 /tmp/resources/${VERSION}${EXTENSION}
-
